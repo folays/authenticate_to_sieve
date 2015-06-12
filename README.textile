@@ -1,0 +1,23 @@
+h1. authenticate_to_sieve
+
+bq. Mail : Authenticate to Sieve Server
+
+<pre>
+folays@phenix:~/authenticate_to_sieve$ ./authenticate_to_sieve.pl -remote=imap -login=xxx -pw=xxx
+</pre>
+
+<pre>
+<- "IMPLEMENTATION" "Dovecot (Ubuntu) Pigeonhole"
+<- "SIEVE" "fileinto envelope encoded-character vacation subaddress relational regex imap4flags copy variables body mailbox date"
+<- "SASL" "PLAIN LOGIN"
+<- "STARTTLS"
+<- "VERSION" "1.0"
+<- OK "Dovecot (Ubuntu) ready."
+-> AUTHENTICATE "PLAIN" "xxx"
+<- OK "Logged in."
+-> Listscripts
+<- "roundcube" ACTIVE
+<- "console"
+<- "flex-backend-ok"
+<- OK "Listscripts completed."
+</pre>
